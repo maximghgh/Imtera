@@ -44,7 +44,6 @@ const logout = async () => {
             },
         });
     } catch (_) {
-        // Ignore API logout failures and clear local auth state anyway.
     } finally {
         localStorage.removeItem('token');
         delete axios.defaults.headers.common.Authorization;
