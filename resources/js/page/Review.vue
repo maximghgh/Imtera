@@ -193,7 +193,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="main--dashboard">
+    <div class="main main--dashboard">
         <div class="logout">
             <button class="btn btn--logout" @click="logout">
                 <img src="../../img/logout.png" alt="Кнопка выйти">
@@ -202,9 +202,9 @@ onMounted(async () => {
 
         <div class="reviews-page">
             <div class="reviews-toolbar">
-                <div class="logo_yandex">
-                    <img src="../../img/yandex-maps-logo.png" alt="Иконка Яндекс карты" class="icon__yandex">
-                    <span class="title__yandex">Яндекс Карты</span>
+                <div class="yandex-badge">
+                    <img src="../../img/yandex-maps-logo.png" alt="Иконка Яндекс карты" class="yandex-badge__icon">
+                    <span class="yandex-badge__title">Яндекс Карты</span>
                 </div>
                 <div class="reviews-toolbar__actions">
                     <select v-model="sort" class="form__input form__input--select">
@@ -225,13 +225,13 @@ onMounted(async () => {
             <div v-else class="reviews-layout">
                 <div class="reviews-list">
                         <article v-for="review in reviews" :key="review.id" class="review-card">
-                            <div class="card">
+                            <div class="review-card__inner">
                                 <div class="review-card__top">
                                     <div class="review-card__meta">
                                         <span class="review-card__date">{{ formatDate(review.published_at) }}</span>
                                         <span class="review-card__branch">
                                             <span>{{ company.company_name || 'Яндекс Карты' }}</span>
-                                            <img src="../../img/yandex-maps-logo.png" alt="Иконка Яндекс карты" class="icon__yandex">
+                                            <img src="../../img/yandex-maps-logo.png" alt="Иконка Яндекс карты" class="yandex-badge__icon">
                                         </span>
                                     </div>
                                     <div class="review-card__stars">

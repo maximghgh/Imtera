@@ -57,7 +57,7 @@ onMounted(() => {
 </script>
 
 <template>
-     <div class="main--dashboard">
+     <div class="main main--dashboard">
         <div class="logout">
             <button class="btn btn--logout" @click="logout">
                 <img src="../../img/logout.png" alt="Кнопка выйти">

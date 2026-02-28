@@ -42,30 +42,30 @@ onMounted(() => {
 <template>
     <div>
         <nav class="menu">
-            <a :href="logoHref" class="logo-link">
+            <a :href="logoHref" class="menu__logo-link">
                 <img src="../../img/лого.png" alt="Логотип">
             </a>
 
-            <span v-if="isAuthenticated" class="name__account">
-                <a href="/profile" class="name__account">
+            <span v-if="isAuthenticated" class="menu__account-name">
+                <a href="/profile" class="menu__account-name">
                     {{ accountName }}
                 </a>
             </span>
 
-            <ul v-if="isAuthenticated" class="list">
-                <li class="list__item list__item--xl">
-                    <a href="/review" class="list__link--xl" :class="{ 'list__link--active': isActive('/review') }">
-                        <img src="../../img/icon__setting.svg" alt="Иконка настройки" class="icon">
+            <ul v-if="isAuthenticated" class="menu__list">
+                <li class="menu__item menu__item--primary">
+                    <a href="/review" class="menu__link menu__link--primary" :class="{ 'menu__link--active': isActive('/review') }">
+                        <img src="../../img/icon__setting.svg" alt="Иконка настройки" class="menu__icon">
                         Отзывы
                     </a>
                 </li>
-                <li class="list__item">
-                    <a href="/review" class="list__link" :class="{ 'list__link--active': isActive('/review') }">
+                <li class="menu__item">
+                    <a href="/review" class="menu__link" :class="{ 'menu__link--active': isActive('/review') }">
                         Отзывы
                     </a>
                 </li>
-                <li class="list__item">
-                    <a href="/setting" class="list__link" :class="{ 'list__link--active': isActive('/setting') }">
+                <li class="menu__item">
+                    <a href="/setting" class="menu__link" :class="{ 'menu__link--active': isActive('/setting') }">
                         Настройки
                     </a>
                 </li>
