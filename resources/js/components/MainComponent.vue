@@ -50,7 +50,7 @@
 
             localStorage.setItem('token', response.data.token);
             axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-            window.location.href = '/dashboard';
+            window.location.href = '/review';
         } catch (e) {
             error.value = e?.response?.data?.message ?? 'Неверный логин или пароль.';
         } finally {
@@ -72,7 +72,7 @@
                     Accept: 'application/json',
                 },
             });
-            window.location.href = '/dashboard';
+            window.location.href = '/review';
         } catch (_) {
             localStorage.removeItem('token');
             delete axios.defaults.headers.common.Authorization;

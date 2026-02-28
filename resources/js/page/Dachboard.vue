@@ -7,7 +7,11 @@ const loading = ref(true);
 const error = ref(null);
 
 const goToLogin = () => {
-    window.location.href = '/login';
+    window.location.href = '/';
+};
+
+const goToReview = () => {
+    window.location.href = '/review';
 };
 
 const loadUser = async () => {
@@ -28,6 +32,7 @@ const loadUser = async () => {
         });
 
         user.value = response.data?.data ?? response.data;
+        goToReview();
     } catch (_) {
         localStorage.removeItem('token');
         delete axios.defaults.headers.common.Authorization;

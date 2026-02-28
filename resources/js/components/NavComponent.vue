@@ -4,8 +4,9 @@ import { computed, onMounted, ref } from 'vue';
 
 const user = ref(null);
 
-const accountName = computed(() => user.value?.login ?? 'Название аккаунта');
+const accountName = computed(() => user.value?.login ?? '');
 const isAuthenticated = computed(() => Boolean(user.value));
+const logoHref = computed(() => (isAuthenticated.value ? '/review' : '/'));
 const isActive = (href) => window.location.pathname === href;
 
 const loadUser = async () => {
@@ -41,11 +42,11 @@ onMounted(() => {
 <template>
     <div>
         <nav class="menu">
-            <a href="/dashboard" class="logo-link">
-                <img src="../../img/лого.svg" alt="Логотип">
+            <a :href="logoHref" class="logo-link">
+                <img src="../../img/лого.png" alt="Логотип">
             </a>
 
-            <span class="name__account">
+            <span v-if="isAuthenticated" class="name__account">
                 <a href="/profile" class="name__account">
                     {{ accountName }}
                 </a>
@@ -53,7 +54,7 @@ onMounted(() => {
 
             <ul v-if="isAuthenticated" class="list">
                 <li class="list__item list__item--xl">
-                    <a href="#" class="list__link--xl">
+                    <a href="/review" class="list__link--xl" :class="{ 'list__link--active': isActive('/review') }">
                         <img src="../../img/icon__setting.svg" alt="Иконка настройки" class="icon">
                         Отзывы
                     </a>
